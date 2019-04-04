@@ -1,3 +1,7 @@
+Page GitHub en cas de besoin :
+
+https://github.com/ECecillo/MINI-PROJET
+
 JEU :
 ________________________________________________________________________________
 
