@@ -21,9 +21,15 @@ struct Balle
     float m;        // masse
 };
 
+struct TerrM ///Création des murs du Jeu
+{
+    int x,y;
+
+};
+
 struct World
 {
-    Particle part[NMAX];        // tableau de particules
+    Balle ba[NMAX];        // tableau de particules
 	int np;                     // nombre de particules
 };
 
@@ -66,11 +72,11 @@ Vec2 make_vec2(float x, float y)
     return r;
 }
 
-void init(World& d)
+/*void init(World& d)
 {
     d.n = 10;
 }
-
+*/
 void collision(World& d)
 {
 	int i;
@@ -120,7 +126,7 @@ void forceGravity(World& d)
 void draw(World& d)
 {
     int i;
-    d.n ++;
+    d. ++;
     for(i=0;i<d.n;i++)
     {
         color(20*i, 255-20*i, 128);
@@ -131,14 +137,27 @@ void draw(World& d)
 int main(int , char** )
 {
     World dat;
+    Menu m;
     bool stop=false;
-	winInit("MyProg", DIMW, DIMW);
+	winInit("Lucky Ball", DIMW, DIMW);
 	init(dat);
     backgroundColor( 100, 50, 200 );
+
+    menu_add( m, "20 POINTS");
+    menu_add( m, "10 POINTS");
+    menu_add( m, "5 POINTS");
+
 	while( !stop )
     {
         winClear();
-        draw(dat);
+        menu_draw(m, 5,5, 100, 102);
+        switch(menu_select(m))
+        {
+            case 0 : /*on met ici le cas où si balle dans boite alors score + 20 * 5*/; draw(dat); break;
+            case 1 : ; draw(dat); break;
+            case 2 : ; draw(dat); break;
+            default: ; draw(jeu); break; ///jeu : Pas d'action donc jeu bouge pas
+        }
         stop = winDisplay();
     }
     winQuit();

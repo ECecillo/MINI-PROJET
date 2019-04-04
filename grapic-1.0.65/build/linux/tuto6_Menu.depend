@@ -1,23 +1,6 @@
 # depslib dependency file v1.0
-1552384711 source:/home/nezo/Documents/MINI-PROJET/grapic-1.0.65/apps/demo_pacman/Jeu.cpp
-	"Jeu.h"
-	<stdlib.h>
-
-1552384701 /home/nezo/Documents/MINI-PROJET/grapic-1.0.65/apps/demo_pacman/Jeu.h
-	"Pacman.h"
-	"Terrain.h"
-
-1552384701 /home/nezo/Documents/MINI-PROJET/grapic-1.0.65/apps/demo_pacman/Pacman.h
-	"Terrain.h"
-
-1552384701 /home/nezo/Documents/MINI-PROJET/grapic-1.0.65/apps/demo_pacman/Terrain.h
-
-1552384711 source:/home/nezo/Documents/MINI-PROJET/grapic-1.0.65/apps/demo_pacman/main_pacman.cpp
+1552384711 source:/home/nezo/Documents/MINI-PROJET/grapic-1.0.65/apps/tutorials/tuto6_Menu.cpp
 	<Grapic.h>
-	<cmath>
-	<cassert>
-	<time.h>
-	"Jeu.h"
 
 1554364934 /home/nezo/Documents/MINI-PROJET/grapic-1.0.65/src/Grapic.h
 	<cassert>
@@ -372,23 +355,14 @@
 	"begin_code.h"
 	"close_code.h"
 
-1520175005 /usr/include/SDL2/SDL_image.h
+1501535956 /usr/include/SDL2/SDL_ttf.h
 	"SDL.h"
-	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
-1552384711 source:/home/nezo/Documents/MINI-PROJET/grapic-1.0.65/apps/demo_pacman/Pacman.cpp
-	"Pacman.h"
-
-1552384711 source:/home/nezo/Documents/MINI-PROJET/grapic-1.0.65/apps/demo_pacman/Terrain.cpp
-	"Terrain.h"
-	<stdio.h>
-	<stdlib.h>
-	<assert.h>
-
-1501535956 /usr/include/SDL2/SDL_ttf.h
+1520175005 /usr/include/SDL2/SDL_image.h
 	"SDL.h"
+	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
