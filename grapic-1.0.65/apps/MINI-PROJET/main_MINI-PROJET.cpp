@@ -4,13 +4,19 @@
 
 using namespace grapic;
 const int NMAX = 10000;         // nombre MAX de particules
-const int DIMW = 500;
+const int DIMWY = 500;
+const int DIMWX = 720;
 const float  FRICTION = 0.2f;   // valeur d'absorbtion de la vitesse en cas de collision: 1=la particule repart aussi vite, 0=elle s'arrete
 const float RADIUS = 5;         // rayon des cercles des particules
 
 struct Vec2
 {
 	float x, y;
+};
+
+struct Bucket
+{
+
 };
 
 struct Balle
@@ -96,14 +102,14 @@ void collision(World& d)
 			d.part[i].v = FRICTION * d.part[i].v;
 		}
 
-		if (d.part[i].p.x >= DIMW)
+		if (d.part[i].p.x >= DIMWX)
 		{
 			d.part[i].p.x = DIMW-(d.part[i].p.x-DIMW);
 			d.part[i].v.x = -d.part[i].v.x;
 			d.part[i].v = FRICTION * d.part[i].v;
 		}
 
-		if (d.part[i].p.y >= DIMW)
+		if (d.part[i].p.y >= DIMWY)
 		{
 			d.part[i].p.y = DIMW - (d.part[i].p.y - DIMW);
 			d.part[i].v.y = -d.part[i].v.y;
@@ -139,7 +145,7 @@ int main(int , char** )
     World dat;
     Menu m;
     bool stop=false;
-	winInit("Lucky Ball", DIMW, DIMW);
+	winInit("Lucky Ball", DIMWX, DIMWY);
 	init(dat);
     backgroundColor( 100, 50, 200 );
 
