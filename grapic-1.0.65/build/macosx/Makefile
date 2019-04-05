@@ -6,7 +6,7 @@ ifndef config
 endif
 export config
 
-PROJECTS := Start tuto1_Simple tuto2_FirstLoop tuto3_Drawing tuto4_Keyboard tuto5_Mouse tuto6_Menu tuto7_Animation tuto8_Plot tuto9_Demo demo_Minesweeper demo_Tetris demo_Checkers demo_Pacman LIFAP1_TP3 LIFAMI_MINI-PROJET
+PROJECTS := Start tuto1_Simple tuto2_FirstLoop tuto3_Drawing tuto4_Keyboard tuto5_Mouse tuto6_Menu tuto7_Animation tuto8_Plot tuto9_Demo demo_Minesweeper demo_Tetris demo_Checkers demo_Pacman LIFAP1_TP3 LIFAMI_MINI-PROJET LIFAMI_1_Complex LIFAMI_2_Interpolation LIFAMI_3_Particle LIFAMI_4_ParticleSpring LIFAMI_5_GameOfLife LIFAMI_6_WolfRabbit LIFAMI_7_ColorInsects LIFAMI_8_IceScream
 
 .PHONY: all clean help $(PROJECTS)
 
@@ -76,6 +76,38 @@ LIFAMI_MINI-PROJET:
 	@echo "==== Building LIFAMI_MINI-PROJET ($(config)) ===="
 	@${MAKE} --no-print-directory -C . -f LIFAMI_MINI-PROJET.make
 
+LIFAMI_1_Complex: 
+	@echo "==== Building LIFAMI_1_Complex ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f LIFAMI_1_Complex.make
+
+LIFAMI_2_Interpolation: 
+	@echo "==== Building LIFAMI_2_Interpolation ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f LIFAMI_2_Interpolation.make
+
+LIFAMI_3_Particle: 
+	@echo "==== Building LIFAMI_3_Particle ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f LIFAMI_3_Particle.make
+
+LIFAMI_4_ParticleSpring: 
+	@echo "==== Building LIFAMI_4_ParticleSpring ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f LIFAMI_4_ParticleSpring.make
+
+LIFAMI_5_GameOfLife: 
+	@echo "==== Building LIFAMI_5_GameOfLife ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f LIFAMI_5_GameOfLife.make
+
+LIFAMI_6_WolfRabbit: 
+	@echo "==== Building LIFAMI_6_WolfRabbit ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f LIFAMI_6_WolfRabbit.make
+
+LIFAMI_7_ColorInsects: 
+	@echo "==== Building LIFAMI_7_ColorInsects ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f LIFAMI_7_ColorInsects.make
+
+LIFAMI_8_IceScream: 
+	@echo "==== Building LIFAMI_8_IceScream ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f LIFAMI_8_IceScream.make
+
 clean:
 	@${MAKE} --no-print-directory -C . -f Start.make clean
 	@${MAKE} --no-print-directory -C . -f tuto1_Simple.make clean
@@ -93,11 +125,21 @@ clean:
 	@${MAKE} --no-print-directory -C . -f demo_Pacman.make clean
 	@${MAKE} --no-print-directory -C . -f LIFAP1_TP3.make clean
 	@${MAKE} --no-print-directory -C . -f LIFAMI_MINI-PROJET.make clean
+	@${MAKE} --no-print-directory -C . -f LIFAMI_1_Complex.make clean
+	@${MAKE} --no-print-directory -C . -f LIFAMI_2_Interpolation.make clean
+	@${MAKE} --no-print-directory -C . -f LIFAMI_3_Particle.make clean
+	@${MAKE} --no-print-directory -C . -f LIFAMI_4_ParticleSpring.make clean
+	@${MAKE} --no-print-directory -C . -f LIFAMI_5_GameOfLife.make clean
+	@${MAKE} --no-print-directory -C . -f LIFAMI_6_WolfRabbit.make clean
+	@${MAKE} --no-print-directory -C . -f LIFAMI_7_ColorInsects.make clean
+	@${MAKE} --no-print-directory -C . -f LIFAMI_8_IceScream.make clean
 
 help:
 	@echo "Usage: make [config=name] [target]"
 	@echo ""
 	@echo "CONFIGURATIONS:"
+	@echo "   debug"
+	@echo "   release"
 	@echo "   debug"
 	@echo "   release"
 	@echo ""
@@ -120,5 +162,13 @@ help:
 	@echo "   demo_Pacman"
 	@echo "   LIFAP1_TP3"
 	@echo "   LIFAMI_MINI-PROJET"
+	@echo "   LIFAMI_1_Complex"
+	@echo "   LIFAMI_2_Interpolation"
+	@echo "   LIFAMI_3_Particle"
+	@echo "   LIFAMI_4_ParticleSpring"
+	@echo "   LIFAMI_5_GameOfLife"
+	@echo "   LIFAMI_6_WolfRabbit"
+	@echo "   LIFAMI_7_ColorInsects"
+	@echo "   LIFAMI_8_IceScream"
 	@echo ""
 	@echo "For more information, see http://industriousone.com/premake/quick-start"

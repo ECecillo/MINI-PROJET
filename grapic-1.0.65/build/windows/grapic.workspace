@@ -33,5 +33,21 @@
 		</Project>
 		<Project filename="LIFAMI_MINI-PROJET.cbp">
 		</Project>
+		<Project filename="LIFAMI_1_Complex.cbp">
+		</Project>
+		<Project filename="LIFAMI_2_Interpolation.cbp">
+		</Project>
+		<Project filename="LIFAMI_3_Particle.cbp">
+		</Project>
+		<Project filename="LIFAMI_4_ParticleSpring.cbp">
+		</Project>
+		<Project filename="LIFAMI_5_GameOfLife.cbp">
+		</Project>
+		<Project filename="LIFAMI_6_WolfRabbit.cbp">
+		</Project>
+		<Project filename="LIFAMI_7_ColorInsects.cbp">
+		</Project>
+		<Project filename="LIFAMI_8_IceScream.cbp">
+		</Project>
 	</Workspace>
 </CodeBlocks_workspace_file>

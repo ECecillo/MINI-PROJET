@@ -49,4 +49,28 @@
 	<FileRef
 		location = "group:LIFAMI_MINI-PROJET.xcodeproj">
 	</FileRef>
+	<FileRef
+		location = "group:LIFAMI_1_Complex.xcodeproj">
+	</FileRef>
+	<FileRef
+		location = "group:LIFAMI_2_Interpolation.xcodeproj">
+	</FileRef>
+	<FileRef
+		location = "group:LIFAMI_3_Particle.xcodeproj">
+	</FileRef>
+	<FileRef
+		location = "group:LIFAMI_4_ParticleSpring.xcodeproj">
+	</FileRef>
+	<FileRef
+		location = "group:LIFAMI_5_GameOfLife.xcodeproj">
+	</FileRef>
+	<FileRef
+		location = "group:LIFAMI_6_WolfRabbit.xcodeproj">
+	</FileRef>
+	<FileRef
+		location = "group:LIFAMI_7_ColorInsects.xcodeproj">
+	</FileRef>
+	<FileRef
+		location = "group:LIFAMI_8_IceScream.xcodeproj">
+	</FileRef>
 </Workspace>
