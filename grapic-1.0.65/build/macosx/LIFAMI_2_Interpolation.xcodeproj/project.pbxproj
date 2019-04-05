@@ -1,0 +1,257 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E3B1252893EE98001848D7BD8DB05600CAD3D9DC7AF5880 /* Grapic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46E009FE4256540C1F1D5DE2C96480053324A4771351C00 /* Grapic.cpp */; };
+		E9ED417C4BCE0800FF04D54A5CF2280AF3353DD6D161800 /* TPInterpolation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3095AF87435D7000EAACA06B5E29E0009C4D007261FA7800 /* TPInterpolation.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3095AF87435D7000EAACA06B5E29E0009C4D007261FA7800 /* TPInterpolation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TPInterpolation.cpp; path = ../../apps/LIFAMI/TPInterpolation.cpp; sourceTree = "<group>"; };
+		3A57D985A54138004DD1A04700828C0033084F93D3DCD600 /* LIFAMI_2_Interpolation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = LIFAMI_2_Interpolation; path = LIFAMI_2_Interpolation; sourceTree = BUILT_PRODUCTS_DIR; };
+		46E009FE4256540C1F1D5DE2C96480053324A4771351C00 /* Grapic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Grapic.cpp; path = ../../src/Grapic.cpp; sourceTree = "<group>"; };
+		FB41B2E3ED844800115B199E0496E100159B4A14F4B2DC00 /* Grapic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Grapic.h; path = ../../src/Grapic.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEDFC7266A6C20003CDE442DC0F98600F62D45BF99729800 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68505F3792C620002646FDFD35B448009F58AE93C4DA2800 /* LIFAMI_2_Interpolation */ = {
+			isa = PBXGroup;
+			children = (
+				B3628B4E3798300015B5C063E3FAF000D420B740A2836800 /* apps */,
+				8E1F9F995775D800C4C07E444366E0004A20803959E7A40 /* src */,
+				DE2FD571A6C938008E134D4D9B3FB000BA17F9BDEA135000 /* Products */,
+			);
+			name = LIFAMI_2_Interpolation;
+			sourceTree = "<group>";
+		};
+		8E1F9F995775D800C4C07E444366E0004A20803959E7A40 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				46E009FE4256540C1F1D5DE2C96480053324A4771351C00 /* Grapic.cpp */,
+				FB41B2E3ED844800115B199E0496E100159B4A14F4B2DC00 /* Grapic.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		B3628B4E3798300015B5C063E3FAF000D420B740A2836800 /* apps */ = {
+			isa = PBXGroup;
+			children = (
+				E5870A48A3380000AD392E2014C318007A96CEA0C3C43C00 /* LIFAMI */,
+			);
+			name = apps;
+			sourceTree = "<group>";
+		};
+		DE2FD571A6C938008E134D4D9B3FB000BA17F9BDEA135000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A57D985A54138004DD1A04700828C0033084F93D3DCD600 /* LIFAMI_2_Interpolation */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5870A48A3380000AD392E2014C318007A96CEA0C3C43C00 /* LIFAMI */ = {
+			isa = PBXGroup;
+			children = (
+				3095AF87435D7000EAACA06B5E29E0009C4D007261FA7800 /* TPInterpolation.cpp */,
+			);
+			name = LIFAMI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3B5A9532DE8D8009D830C704FB4880094E67158C69B000 /* LIFAMI_2_Interpolation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEDFC72558A768003CDE442CAF34CE00F62D45BE87ADE000 /* Build configuration list for PBXNativeTarget "LIFAMI_2_Interpolation" */;
+			buildPhases = (
+				CEDFC729DA53A0003CDE443130E10800F62D45C3095A1800 /* Resources */,
+				CEDFC72A4400B8003CDE44319A8E2000F62D45C373073800 /* Sources */,
+				CEDFC7266A6C20003CDE442DC0F98600F62D45BF99729800 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LIFAMI_2_Interpolation;
+			productInstallPath = "$(HOME)/bin";
+			productName = LIFAMI_2_Interpolation;
+			productReference = 3A57D985A54138004DD1A04700828C0033084F93D3DCD600 /* LIFAMI_2_Interpolation */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "LIFAMI_2_Interpolation" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			mainGroup = 68505F3792C620002646FDFD35B448009F58AE93C4DA2800 /* LIFAMI_2_Interpolation */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3B5A9532DE8D8009D830C704FB4880094E67158C69B000 /* LIFAMI_2_Interpolation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEDFC729DA53A0003CDE443130E10800F62D45C3095A1800 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEDFC72A4400B8003CDE44319A8E2000F62D45C373073800 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9ED417C4BCE0800FF04D54A5CF2280AF3353DD6D161800 /* TPInterpolation.cpp in Sources */,
+				E3B1252893EE98001848D7BD8DB05600CAD3D9DC7AF5880 /* Grapic.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F2850E10A9D3100F30248DE9D2AF800C8C3FC130603A000 /* release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = ../../bin;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = LIFAMI_2_Interpolation;
+			};
+			name = release;
+		};
+		3A6092E22AF422004DDA59A386357400331108F0598FC000 /* release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
+				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../..,
+					../../src,
+					../../extern/macosx/SDL2.framework/Versions/A/Headers,
+					../../extern/macosx/SDL2.framework/Versions/A/Headers/SDL2,
+					../../extern/macosx/SDL2_image.framework/Versions/A/Headers,
+					../../extern/macosx/SDL2_ttf.framework/Versions/A/Headers,
+				);
+				OBJROOT = obj/release/LIFAMI_2_Interpolation;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = (
+					"-W -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-narrowing",
+					"-std=c++11",
+				);
+				OTHER_LDFLAGS = (
+					../../extern/macosx/SDL2.framework/Versions/A/SDL2,
+					../../extern/macosx/SDL2_image.framework/Versions/A/SDL2_image,
+					../../extern/macosx/SDL2_ttf.framework/Versions/A/SDL2_ttf,
+					"-rpath @executable_path/../extern/macosx",
+				);
+				SYMROOT = ../../bin;
+			};
+			name = release;
+		};
+		5EE271ADAAC34C0ED8003520A3E00003695B0BBE54B4200 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
+				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../..,
+					../../src,
+					../../extern/macosx/SDL2.framework/Versions/A/Headers,
+					../../extern/macosx/SDL2.framework/Versions/A/Headers/SDL2,
+					../../extern/macosx/SDL2_image.framework/Versions/A/Headers,
+					../../extern/macosx/SDL2_ttf.framework/Versions/A/Headers,
+				);
+				OBJROOT = obj/debug/LIFAMI_2_Interpolation;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = (
+					"-W -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-narrowing",
+					"-std=c++11",
+				);
+				OTHER_LDFLAGS = (
+					../../extern/macosx/SDL2.framework/Versions/A/SDL2,
+					../../extern/macosx/SDL2_image.framework/Versions/A/SDL2_image,
+					../../extern/macosx/SDL2_ttf.framework/Versions/A/SDL2_ttf,
+					"-rpath @executable_path/../extern/macosx",
+				);
+				SYMROOT = ../../bin;
+			};
+			name = debug;
+		};
+		649C3292704FE400AC44B6ADB49E8800662D2608F6C5C400 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = ../../bin;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = LIFAMI_2_Interpolation;
+			};
+			name = debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "LIFAMI_2_Interpolation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EE271ADAAC34C0ED8003520A3E00003695B0BBE54B4200 /* debug */,
+				3A6092E22AF422004DDA59A386357400331108F0598FC000 /* release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = debug;
+		};
+		CEDFC72558A768003CDE442CAF34CE00F62D45BE87ADE000 /* Build configuration list for PBXNativeTarget "LIFAMI_2_Interpolation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				649C3292704FE400AC44B6ADB49E8800662D2608F6C5C400 /* debug */,
+				1F2850E10A9D3100F30248DE9D2AF800C8C3FC130603A000 /* release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = debug;
+		};
+/* End XCConfigurationList section */
+};
+rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

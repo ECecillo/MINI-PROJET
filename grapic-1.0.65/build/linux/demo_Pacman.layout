@@ -2,7 +2,12 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="debug" />
-	<File name="../../apps/demo_pacman/Jeu.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../../apps/demo_pacman/Terrain.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="586" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="../../apps/demo_pacman/Jeu.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
@@ -12,12 +17,7 @@
 			<Cursor1 position="6620" topLine="312" />
 		</Cursor>
 	</File>
-	<File name="../../apps/demo_pacman/Terrain.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="586" topLine="39" />
-		</Cursor>
-	</File>
-	<File name="../../apps/demo_pacman/main_pacman.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../../apps/demo_pacman/main_pacman.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2172" topLine="3" />
 		</Cursor>

@@ -63,6 +63,50 @@ ifeq ($(config),release)
   endef
 endif
 
+ifeq ($(config),debug)
+  OBJDIR     = obj/debug/LIFAMI_MINI-PROJET
+  TARGETDIR  = ../../bin
+  TARGET     = $(TARGETDIR)/LIFAMI_MINI-PROJET
+  DEFINES   += 
+  INCLUDES  += -I../.. -I../../src -I../../extern/macosx/SDL2.framework/Versions/A/Headers -I../../extern/macosx/SDL2.framework/Versions/A/Headers/SDL2 -I../../extern/macosx/SDL2_image.framework/Versions/A/Headers -I../../extern/macosx/SDL2_ttf.framework/Versions/A/Headers
+  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -W -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-narrowing -std=c++11
+  CXXFLAGS  += $(CFLAGS) 
+  LDFLAGS   += -Wl,-x ../../extern/macosx/SDL2.framework/Versions/A/SDL2 ../../extern/macosx/SDL2_image.framework/Versions/A/SDL2_image ../../extern/macosx/SDL2_ttf.framework/Versions/A/SDL2_ttf -rpath @executable_path/../extern/macosx
+  LIBS      += 
+  RESFLAGS  += $(DEFINES) $(INCLUDES) 
+  LDDEPS    += 
+  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(ARCH) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+endif
+
+ifeq ($(config),release)
+  OBJDIR     = obj/release/LIFAMI_MINI-PROJET
+  TARGETDIR  = ../../bin
+  TARGET     = $(TARGETDIR)/LIFAMI_MINI-PROJET
+  DEFINES   += 
+  INCLUDES  += -I../.. -I../../src -I../../extern/macosx/SDL2.framework/Versions/A/Headers -I../../extern/macosx/SDL2.framework/Versions/A/Headers/SDL2 -I../../extern/macosx/SDL2_image.framework/Versions/A/Headers -I../../extern/macosx/SDL2_ttf.framework/Versions/A/Headers
+  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -W -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-narrowing -std=c++11
+  CXXFLAGS  += $(CFLAGS) 
+  LDFLAGS   += -Wl,-x ../../extern/macosx/SDL2.framework/Versions/A/SDL2 ../../extern/macosx/SDL2_image.framework/Versions/A/SDL2_image ../../extern/macosx/SDL2_ttf.framework/Versions/A/SDL2_ttf -rpath @executable_path/../extern/macosx
+  LIBS      += 
+  RESFLAGS  += $(DEFINES) $(INCLUDES) 
+  LDDEPS    += 
+  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(ARCH) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+endif
+
 OBJECTS := \
 	$(OBJDIR)/Grapic.o \
 	$(OBJDIR)/main_MINI-PROJET.o \

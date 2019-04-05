@@ -63,6 +63,50 @@ ifeq ($(config),release)
   endef
 endif
 
+ifeq ($(config),debug)
+  OBJDIR     = obj/debug/demo_Tetris
+  TARGETDIR  = ../../bin
+  TARGET     = $(TARGETDIR)/demo_Tetris
+  DEFINES   += 
+  INCLUDES  += -I../.. -I../../src -I/usr/include/SDL2
+  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -std=c++11 -ggdb -W -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-unused-but-set-variable -Wno-narrowing
+  CXXFLAGS  += $(CFLAGS) 
+  LDFLAGS   += -s -ggdb
+  LIBS      += -lSDL2 -lSDL2_image -lSDL2_ttf
+  RESFLAGS  += $(DEFINES) $(INCLUDES) 
+  LDDEPS    += 
+  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(ARCH) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+endif
+
+ifeq ($(config),release)
+  OBJDIR     = obj/release/demo_Tetris
+  TARGETDIR  = ../../bin
+  TARGET     = $(TARGETDIR)/demo_Tetris
+  DEFINES   += 
+  INCLUDES  += -I../.. -I../../src -I/usr/include/SDL2
+  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -std=c++11 -ggdb -W -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-unused-but-set-variable -Wno-narrowing
+  CXXFLAGS  += $(CFLAGS) 
+  LDFLAGS   += -s -ggdb
+  LIBS      += -lSDL2 -lSDL2_image -lSDL2_ttf
+  RESFLAGS  += $(DEFINES) $(INCLUDES) 
+  LDDEPS    += 
+  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(ARCH) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+endif
+
 OBJECTS := \
 	$(OBJDIR)/Grapic.o \
 	$(OBJDIR)/main_tetris.o \

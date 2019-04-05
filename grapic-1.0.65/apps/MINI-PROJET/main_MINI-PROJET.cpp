@@ -16,6 +16,7 @@ struct Vec2
 
 struct Bucket
 {
+    Vec2 po;
 
 };
 

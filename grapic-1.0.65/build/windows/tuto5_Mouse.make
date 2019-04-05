@@ -63,6 +63,50 @@ ifeq ($(config),release)
   endef
 endif
 
+ifeq ($(config),debug)
+  OBJDIR     = obj/debug/tuto5_Mouse
+  TARGETDIR  = ../../bin
+  TARGET     = $(TARGETDIR)/tuto5_Mouse.exe
+  DEFINES   += -DWIN32 -DNVWIDGETS_EXPORTS -D_USE_MATH_DEFINES -D_CRT_SECURE_NO_WARNINGS -DNOMINMAX
+  INCLUDES  += -I../.. -I../../src -I../../extern/mingw/include -I../../extern/mingw/include/SDL2
+  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -std=c++11 -W -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-unused-but-set-variable -Wno-narrowing -g
+  CXXFLAGS  += $(CFLAGS) 
+  LDFLAGS   += -s -g -L../../extern/mingw/lib
+  LIBS      += -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+  RESFLAGS  += $(DEFINES) $(INCLUDES) 
+  LDDEPS    += 
+  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(ARCH) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+endif
+
+ifeq ($(config),release)
+  OBJDIR     = obj/release/tuto5_Mouse
+  TARGETDIR  = ../../bin
+  TARGET     = $(TARGETDIR)/tuto5_Mouse.exe
+  DEFINES   += -DWIN32 -DNVWIDGETS_EXPORTS -D_USE_MATH_DEFINES -D_CRT_SECURE_NO_WARNINGS -DNOMINMAX
+  INCLUDES  += -I../.. -I../../src -I../../extern/mingw/include -I../../extern/mingw/include/SDL2
+  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -std=c++11 -W -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-variable -Wno-comment -Wno-unused-but-set-variable -Wno-narrowing -g
+  CXXFLAGS  += $(CFLAGS) 
+  LDFLAGS   += -s -g -L../../extern/mingw/lib
+  LIBS      += -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+  RESFLAGS  += $(DEFINES) $(INCLUDES) 
+  LDDEPS    += 
+  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(ARCH) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+endif
+
 OBJECTS := \
 	$(OBJDIR)/Grapic.o \
 	$(OBJDIR)/tuto5_Mouse.o \
