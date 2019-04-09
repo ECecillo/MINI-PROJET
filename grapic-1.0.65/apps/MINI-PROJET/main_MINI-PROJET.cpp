@@ -1,43 +1,28 @@
 #include <iostream>
 #include <cmath>
 #include <Grapic.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 using namespace grapic;
+const int MAXW = 50;
 const int NMAX = 10000;         // nombre MAX de particules
 const int DIMWY = 500;
 const int DIMWX = 720;
 const float  FRICTION = 0.2f;   // valeur d'absorbtion de la vitesse en cas de collision: 1=la particule repart aussi vite, 0=elle s'arrete
 const float RADIUS = 5;         // rayon des cercles des particules
 
+struct Color
+{
+    int r;		// Des int pour pouvoir depasser 255 lors des additions mais ce n'est pas très joli, ni conventionnelle
+    int g;
+    int b;
+};
+
 struct Vec2
 {
 	float x, y;
-};
-
-struct Bucket
-{
-    Vec2 po;
-
-};
-
-struct Balle
-{
-    Vec2 p;        // postion de la Balle
-    Vec2 v;        // vitesse
-    Vec2 f;        // force
-    float m;        // masse
-};
-
-struct TerrM ///Création des murs du Jeu
-{
-    int x,y;
-
-};
-
-struct World
-{
-    Balle ba[NMAX];        // tableau de particules
-	int np;                     // nombre de particules
 };
 
 Vec2 operator+(const Vec2& a, const Vec2& b)
@@ -79,44 +64,114 @@ Vec2 make_vec2(float x, float y)
     return r;
 }
 
-/*void init(World& d)
+float norm(const Vec2 v) ///Calculs de l'hypo.
 {
-    d.n = 10;
+	return sqrt(v.x*v.x + v.y*v.y);
 }
-*/
-void collision(World& d)
+
+
+struct Wall ///Création des murs du Jeu
 {
-	int i;
-	for (i = 0; i < d.np; ++i)
-	{
-		if (d.part[i].p.x < 0)
+    Vec2 minp; ///Coordonnées pour les rectangles
+    Vec2 maxp; ///Coordonnées pour les rectangles
+};
+
+struct Ball
+{
+    Vec2 p;        // postion de la Balle
+    Vec2 v;        // vitesse
+    Vec2 f;        // force
+    float m;        // masse
+};
+
+void print(Ball& b) ///Débug de la balle
+{
+    int i;
+    cout<<i<<" b=("<<b.p.x<<","<<b.p.y<<") v=("<<b.v.x<<","<<b.p.y<<") m="<<b.m<<endl;
+}
+
+struct World
+{
+    int nbW; ///le nombre de murs dans le jeu
+    Wall tab[MAXW]; ///Tableau de murs pour initialisé généralement les murs
+};
+
+void initWall (Wall w, float xmin, float ymin, float xmax, float ymax) ///Propriété générale des murs
+{
+    int i;
+    w.minp.x = xmin; ///Init x min pour rectangle qui formera mur
+    w.minp.y = ymin; /// ...
+    w.maxp.x = xmax; /// ...
+    w.maxp.y = ymax; /// ...
+    for (i=0; i< MAXW; i++)
+    {
+        color(255,255,255); ///couleur du mur ( rectangle ).
+        rectangle(w.minp.x, w.minp.y, w.maxp.x, w.maxp.y);
+    }
+}
+
+/*struct World ///Création des murs du Jeu
+{
+
+
+};*/
+
+void initBall (Ball &b)
+{
+    b.p.x= rand()%(DIMWX-2)+1; ///valeur entre 1 - 717, pour évite que la balle générée aille en dehors de la fenêtre lors de la génération.
+    b.p.y= rand()%(DIMWY+10)+1; ///valeur entre 1 et 510, pour ne pas qu'elle soit vue par le joueur.
+    color(255,255,255); ///Couleur blanche.
+    circle(b.p.x, b.p.y, 3); ///Création d'un cercle à partir des coordo définit précédement.
+}
+
+void initWorld (World &w)
+{
+    w.nbW = 26; ///26 murs en tout dans le jeu
+
+
+}
+
+void updateParticle(Particle& part)		// advect
+{
+    const float dt = 0.1;
+    if (part.m>0)
+    {
+        part.v = part.v + (dt/part.m)*part.f;     // mise à jour de la vitesse
+        part.p = part.p + dt*part.v;                   // mise à jour de la position
+        part.f.x = 0;
+        part.f.y = 0;
+    }
+}
+
+void colisionWindow(Ball &b) /// Colision pour une seule balle pour l'instant,
+{
+
+		if (b.p.x < 0)
 		{
-			d.part[i].p.x = -d.part[i].p.x;
-			d.part[i].v.x = -d.part[i].v.x;
-			d.part[i].v = FRICTION * d.part[i].v;
+			b.p.x = -b.p.x;
+			b.v.x = -b.v.x;
+			b.v = FRICTION * b.v;
 		}
 
-		if (d.part[i].p.y < 0)
+		if (b.p.y < 0)
 		{
-			d.part[i].p.y = -d.part[i].p.y;
-			d.part[i].v.y = -d.part[i].v.y;
-			d.part[i].v = FRICTION * d.part[i].v;
+			b.p.y = b.p.y;
+			b.v.y = -b.v.y;
+			b.v = FRICTION * b.v;
 		}
 
-		if (d.part[i].p.x >= DIMWX)
+		if (b.p.x >= DIMWX)
 		{
-			d.part[i].p.x = DIMW-(d.part[i].p.x-DIMW);
-			d.part[i].v.x = -d.part[i].v.x;
-			d.part[i].v = FRICTION * d.part[i].v;
+			b.p.x = DIMWX-(b.p.x-DIMWX);
+			b.v.x = -b.v.x;
+			b.v = FRICTION * b.v;
 		}
 
-		if (d.part[i].p.y >= DIMWY)
+		if (b.p.y >= DIMWY)
 		{
-			d.part[i].p.y = DIMW - (d.part[i].p.y - DIMW);
-			d.part[i].v.y = -d.part[i].v.y;
-			d.part[i].v = FRICTION * d.part[i].v;
-		}
-	}
+			b.p.y = DIMWY-(b.p.y-DIMWY);
+			b.v.y = -b.v.y;
+			b.v = FRICTION * b.v
 }
 
 void forceGravity(World& d)
@@ -130,7 +185,7 @@ void forceGravity(World& d)
 	}
 }
 
-void draw(World& d)
+void drawW(World& d)
 {
     int i;
     d. ++;
@@ -143,12 +198,15 @@ void draw(World& d)
 
 int main(int , char** )
 {
+    srand(time(NULL));
+    Ball b;
+    initBall(b);
     World dat;
     Menu m;
     bool stop=false;
-	winInit("Lucky Ball", DIMWX, DIMWY);
+	winInit("Dans la boite", DIMWX, DIMWY);
 	init(dat);
-    backgroundColor( 100, 50, 200 );
+    backgroundColor( 0, 0, 0);
 
     menu_add( m, "20 POINTS");
     menu_add( m, "10 POINTS");
