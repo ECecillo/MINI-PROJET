@@ -96,9 +96,11 @@ struct World
     Wall tab[MAXW]; ///Tableau de murs pour initialisé généralement les murs
 };
 
-void initWall (Wall w, float xmin, float ymin, float xmax, float ymax) ///Propriété générale des murs
+void initWall (World &w, float xmin, float ymin, float xmax, float ymax) ///Propriété générale des murs
 {
     int i;
+    w.nbW= 26;
+
     w.minp.x = xmin; ///Init x min pour rectangle qui formera mur
     w.minp.y = ymin; /// ...
     w.maxp.x = xmax; /// ...
@@ -131,48 +133,54 @@ void initWorld (World &w)
 
 }
 
-void updateParticle(Particle& part)		// advect
+void updateParticle(Balle& b)		// advect
 {
     const float dt = 0.1;
-    if (part.m>0)
+    if (b.m>0)
     {
-        part.v = part.v + (dt/part.m)*part.f;     // mise à jour de la vitesse
-        part.p = part.p + dt*part.v;                   // mise à jour de la position
-        part.f.x = 0;
-        part.f.y = 0;
+        b.v = b.v + (dt/b.m)*b.f;     // mise à jour de la vitesse
+        b.p = b.p + dt*b.v;                   // mise à jour de la position
+        b.f.x = 0;
+        b.f.y = 0;
     }
 }
 
-void colisionWindow(Ball &b) /// Colision pour une seule balle pour l'instant,
+void colisionWindow(Ball &b, Wall &wa) /// Colision pour une seule balle pour l'instant,
 {
+  {///Colision sur fenêtre
+    if (b.p.x < 0)
+    {
+        b.p.x = -b.p.x;
+        b.v.x = -b.v.x;
+        b.v = FRICTION * b.v;
+    }
+    if (b.p.y < 0)
+    {
+        b.p.y = b.p.y;
+        b.v.y = -b.v.y;
+        b.v = FRICTION * b.v;
+    }
+    if (b.p.x >= DIMWX)
+    {
+        b.p.x = DIMWX-(b.p.x-DIMWX);
+        b.v.x = -b.v.x;
+        b.v = FRICTION * b.v;
+    }
+    if (b.p.y >= DIMWY)
+    {
+        b.p.y = DIMWY-(b.p.y-DIMWY);
+        b.v.y = -b.v.y;
+        b.v = FRICTION * b.v
+    }
+  }
+  {
+    M1 = ;
+    M2 = ;
 
-		if (b.p.x < 0)
-		{
-			b.p.x = -b.p.x;
-			b.v.x = -b.v.x;
-			b.v = FRICTION * b.v;
-		}
+  }
 
-		if (b.p.y < 0)
-		{
-			b.p.y = b.p.y;
-			b.v.y = -b.v.y;
-			b.v = FRICTION * b.v;
-		}
-
-		if (b.p.x >= DIMWX)
-		{
-			b.p.x = DIMWX-(b.p.x-DIMWX);
-			b.v.x = -b.v.x;
-			b.v = FRICTION * b.v;
-		}
-
-		if (b.p.y >= DIMWY)
-		{
-			b.p.y = DIMWY-(b.p.y-DIMWY);
-			b.v.y = -b.v.y;
-			b.v = FRICTION * b.v
 }
+
 
 void forceGravity(World& d)
 {
