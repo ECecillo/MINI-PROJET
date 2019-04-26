@@ -40,7 +40,7 @@ int main(int , char** )
 	while( !stop )
     {
         winClear();
-        menu_draw(m, 5,5, 100, 102);
+        menu_draw(m, 2,5, 100, 50);
         switch(menu_select(m))
         {
             case 0 : dat.n = 5; draw(dat); break;

@@ -7,12 +7,13 @@
 using namespace grapic;
 using namespace std;
 
-const int MAXW = 26;
+const float G = 9.81f;
+const int MAXW = 28;
 const int NMAX = 10000;         // nombre MAX de particules
 const int DIMWY = 500;
 const int DIMWX = 720;
-const float  FRICTION = 0.2f;   // valeur d'absorbtion de la vitesse en cas de collision: 1=la particule repart aussi vite, 0=elle s'arrete
-const float RADIUS = 5;         // rayon des cercles des particules
+const float  FRICTION = 0.02f;   // valeur d'absorbtion de la vitesse en cas de collision: 1=la particule repart aussi vite, 0=elle s'arrete
+const float R = 3;         // rayon des cercles des particules
 
 struct Color
 {
@@ -73,9 +74,8 @@ float norm(const Vec2 v) ///Calculs de l'hypo.
 
 struct Wall ///Création des murs du Jeu
 {
-    Vec2 minp; ///Coordonnées pour les rectangles
-    Vec2 maxp; ///Coordonnées pour les rectangles
-    Color CoulW;
+    Vec2 minp; ///Coordonnées pour les lignes : x
+    Vec2 maxp; ///Coordonnées pour les lignes : y
 };
 
 struct Ball
@@ -84,61 +84,146 @@ struct Ball
     Vec2 v;        // vitesse
     Vec2 f;        // force
     float m;        // masse
+    float r;
 };
 
-void print(Ball& b) ///Débug de la balle
+/*void print(Ball& b) ///Débug de la balle
 {
     int i;
     cout<<i<<" b=("<<b.p.x<<","<<b.p.y<<") v=("<<b.v.x<<","<<b.p.y<<") m="<<b.m<<endl;
-}
+}*/
 
 struct World
 {
-    int nbW; ///le nombre de murs dans le jeu
     Wall tab[MAXW]; ///Tableau de murs pour initialisé généralement les murs
-    Color CoulW;
+    int nbW; ///le nombre de murs dans le jeu
+    Ball ba;
+
 };
 
-void initWall (World &w, Wall &wa, float xmin, float ymin, float xmax, float ymax) ///Propriété générale des murs
+void AddWall(World &w, float xmin, float ymin,float xmax, float ymax) ///Permet d'ajouter chaque mur à des coordonnées différentes
 {
-    int i;
-    w.nbW= 26;
+    //for (w.nbW = 0; w.nbW < nb; w.nbW++)
+    //{
 
-    wa.minp.x = xmin; ///Init x min pour rectangle qui formera mur
-    wa.minp.y = ymin; /// ...
-    wa.maxp.x = xmax; /// ...
-    wa.maxp.y = ymax; /// ...
-    for (i=0; i< w.nbW; i++)
+        w.tab[w.nbW].minp.x = xmin;
+        w.tab[w.nbW].minp.y = ymin;
+        w.tab[w.nbW].maxp.x = xmax;
+        w.tab[w.nbW].maxp.y = ymax;
+        w.nbW++;
+    //}
+
+}
+
+void initBall (Ball &b) ///InitB
+{
     {
-        color(255,255,255); ///couleur du mur (ligne).
-        w.tab[i]=line(w.minp.x, w.minp.y, w.maxp.x, w.maxp.y);
+        b.p.x= rand()%(DIMWX-2)+1; ///valeur entre 1 - 717, pour évite que la balle générée aille en dehors de la fenêtre lors de la génération.
+        b.p.y= 530;//rand()%(DIMWY+10); ///valeur entre 1 et 510, pour ne pas qu'elle soit vue par le joueur.
+    }
+    {
+        color(255,255,255); ///Couleur blanche.
+        circle(b.p.x, b.p.y, b.r); ///Création d'un cercle à partir des coordo définit précédement.
+    }
+    b.m = 1.0;
+    b.f.x = 0;
+    b.f.y = 0;
+}
+
+void forceGravity(Ball &ba) ///Ajout de la gravité de la terre
+{
+	ba.f = ba.f + make_vec2(0, -ba.m * G);
+}
+
+void initTheWholeWorld (World &w, Ball &ba) ///Initialisation de la balle dans le monde et de tous les murs du jeu
+{
+    initBall(ba);
+    w.nbW = 0;
+    { ///Initialisation des murs du jeux (environement)
+
+        AddWall(w, 50, 450, 150, 350);  ///Droite \ en haut à gauche
+        AddWall(w, 250, 300, 150, 200); /// Droite / à gauche du milieu
+        AddWall(w, 310, 150, 410, 150); /// Droite en dessous du milieu
+        AddWall(w, 360, 400, 360, 250); /// LA DROITE DU MILIEU
+        AddWall(w, 675, 450, 580, 350); /// DROITE / en haut à droite
+        AddWall(w, 580, 200, 480, 300); /// DROITE / à droite du milieu
+    }
+    { ///Initialisation des murs du jeux (boites)
+        {
+            AddWall(w, 20, 0, 20, 50);
+            AddWall(w, 70, 0, 70, 50);
+        }
+
+        {
+            AddWall(w, 90, 0, 90, 50);
+            AddWall(w, 140, 0, 140, 50);
+        }
+
+        {
+            AddWall(w, 160, 0, 160, 50);
+            AddWall(w, 210, 0, 210, 50);
+        }
+
+        {
+            AddWall(w, 230, 0, 230, 50);
+            AddWall(w, 280, 0, 280, 50);
+        }
+
+        {
+            AddWall(w, 300, 0, 300, 50);
+            AddWall(w, 350, 0, 350, 50);
+        }
+
+        {
+            AddWall(w, 370, 0, 370, 50);
+            AddWall(w, 420, 0, 420, 50);
+        }
+        {
+            AddWall(w, 440, 0, 440, 50);
+            AddWall(w, 490, 0, 490, 50);
+        }
+
+        {
+            AddWall(w, 510, 0, 510, 50);
+            AddWall(w, 560, 0, 560, 50);
+        }
+
+        {
+            AddWall(w, 580, 0, 580, 50);
+            AddWall(w, 630, 0, 630, 50);
+        }
+
+        {
+            AddWall(w, 650, 0, 650, 50);
+            AddWall(w, 700, 0, 700, 50);
+        }
+    }
+    { ///MUR FEMANT OUVERTURE
+        { ///GAUCHE
+            AddWall(w, 0, 80, 20, 50);
+        }
+
+        { ///DROITE
+            AddWall(w, 700, 50, 720, 80);
+        }
     }
 }
 
-/*struct World ///Création des murs du Jeu
-{
-
-
-};*/
-
-void initBall (Ball &b)
-{
-    b.p.x= rand()%(DIMWX-2)+1; ///valeur entre 1 - 717, pour évite que la balle générée aille en dehors de la fenêtre lors de la génération.
-    b.p.y= rand()%(DIMWY+10)+1; ///valeur entre 1 et 510, pour ne pas qu'elle soit vue par le joueur.
-    color(255,255,255); ///Couleur blanche.
-    circle(b.p.x, b.p.y, 3); ///Création d'un cercle à partir des coordo définit précédement.
-}
-
-void initWorld (World &w)
+/*void initWorldW (World &w)
 {
     w.nbW = 26; ///26 murs en tout dans le jeu
-
-
+    int i;
+    for (i=0; i< w.nbW; i++)
+    {
+        w.tab[i].CoulW = color(255,255,255);
+    }
 }
+*/
 
-void updateParticle(Balle& b)		// advect
+
+void updateBall(Ball& b)		// advect
 {
-    const float dt = 0.1;
+    const float dt = 0.002;
     if (b.m>0)
     {
         b.v = b.v + (dt/b.m)*b.f;     // mise à jour de la vitesse
@@ -148,73 +233,69 @@ void updateParticle(Balle& b)		// advect
     }
 }
 
-bool CollisionDroite(Wall &wa,Ball &b)
-{
-
-}
-
-void colisionWindow(Ball &b, Wall &wa) /// Colision pour une seule balle pour l'instant,
+void colisionWindow(Ball &b)
 {
   {///Colision sur fenêtre
-    if (b.p.x < 0)
+    if (b.p.x < 0)  ///colision bas de fenêtre
     {
         b.p.x = -b.p.x;
         b.v.x = -b.v.x;
         b.v = FRICTION * b.v;
     }
-    if (b.p.y < 0)
+    if (b.p.y < 0)  ///colision fenêtre
     {
-        b.p.y = b.p.y;
+        b.p.y = -b.p.y;
         b.v.y = -b.v.y;
         b.v = FRICTION * b.v;
     }
-    if (b.p.x >= DIMWX)
+    /*if (b.p.x >= DIMWX)
     {
         b.p.x = DIMWX-(b.p.x-DIMWX);
         b.v.x = -b.v.x;
         b.v = FRICTION * b.v;
-    }
+    } HAUT DE LA FENETRE */
     if (b.p.y >= DIMWY)
     {
         b.p.y = DIMWY-(b.p.y-DIMWY);
         b.v.y = -b.v.y;
-        b.v = FRICTION * b.v
+        b.v = FRICTION * b.v;
     }
   }
-  {
-    M1 = ;
-    M2 = ;
-
-  }
 
 }
 
-
-void forceGravity(World& d)
+void drawB(Ball &ba)
 {
-	int i,j;
-	const float G = 9.81f;
-	for (i = 0; i < d.np; ++i)
-	{
-        d.part[i].f.x = 0;
-        d.part[i].f.y = -d.part[i].m * G;
-	}
+    color(255,0,0);
+    circleFill(ba.p.x,ba.p.y, R);
 }
 
-void drawW(World& d)
+void drawWall(World &wa)
 {
     int i;
-    d. ++;
-    for(i=0;i<d.n;i++)
+    color(255,255,255);
+    for (i= 0; i< wa.nbW ; i++)
     {
-        color(20*i, 255-20*i, 128);
-        rectangle( DIMW/2 - 10*i, DIMW/2 - 10*i, DIMW/2 + 10*i, DIMW/2 + 10*i);
+        line(wa.tab[i].minp.x,wa.tab[i].minp.y,wa.tab[i].maxp.x, wa.tab[i].maxp.y);
     }
 }
-void CollisionDroite (Wall &wa, Ball &ba)
+
+void drawAll (World &w, Ball &ba)
 {
-    Vec2 u = make_vec2(wa.maxp.x-wa.minp.x, wa.maxp.y-wa.minp.y);
-    Vec2 WallCer = make_vec2(ba.p.x - wa.minp.x,ba.p.y - wa.minp.y );
+    drawWall(w);
+    drawB(ba);
+}
+
+bool CollisionDroite (World &w, Ball &ba) ///Dis si il y colision avec segment (mur)
+{
+    int i;
+    for (i=0; i < w.nbW; i++)
+    {
+        Vec2 u = w.tab[i].maxp-w.tab[i].minp; //, w.tab[i].maxp.y-w.tab[i].minp.y);
+       // Vec2 u = make_vec2(w.tab[i].maxp.x-w.tab[i].minp.x, w.tab[i].maxp.y-w.tab[i].minp.y);
+        Vec2 WallCer = make_vec2(ba.p.x - w.tab[i].minp.x,ba.p.y - w.tab[i].minp.y );   ///
+
+
     float numerateur = u.x*WallCer.y-u.y*WallCer.x;
     if (numerateur<0)
     {
@@ -222,41 +303,94 @@ void CollisionDroite (Wall &wa, Ball &ba)
     }
     float denominateur = norm(u);
     float CI = numerateur/denominateur;
-    if (CI < C)
+
+
+    if (CI < R)
     {
-        ba.p.v= -ba.p.v;
+        return true;
     }
+    else
+    {
+        return false;
+    }
+    }
+
 }
+
+bool UpdateBlocParticle(World& wa, Ball ba)
+{
+    int i;
+    for (i=0; i< wa.nbW; i++)
+    {
+            if (CollisionDroite(wa, ba) ==  false)
+            {
+                return false;
+            }
+    Vec2 Min = wa.tab[i].minp;
+    Vec2 Max = wa.tab[i].maxp;
+
+    Vec2 C = ba.p;
+
+    Vec2 XY, XC, YC; ///XC = X à la balle, XY = segment, YC = Y à la balle
+    XY.x = Max.x - Min.x;
+    XY.y = Max.y - Min.y;
+    XC.x = C.x - Min.x;
+    XC.y = C.y - Min.y;
+    YC.x = C.x - Max.x;
+    YC.y = C.y - Max.y;
+
+    float pscal1 = XY.x*XC.x + XY.y*XY.y; ///produit scalaire
+    float pscal2 = (-XY.x)*YC.x + (-XY.y)*YC.y; ///produit scalaire
+    if (pscal1 >= 0 && pscal2 >= 0)
+    {
+        ba.v.x = -ba.v.x;
+    }
+    return true;
+    }
+
+}
+
+
+void updateOnearth(Ball& ba)
+{
+    forceGravity(ba);
+    updateBall(ba);
+    colisionWindow(ba);
+}
+
 
 int main(int , char** )
 {
     srand(time(NULL));
-    Ball b;
-    Wall wa;
-    initBall(b);
-    World dat;
+    World w;
+    Ball ba;
     Menu m;
-    bool stop=false;
-	winInit("Dans la boite", DIMWX, DIMWY);
-	init(dat);
+    winInit("Dans la boite", DIMWX, DIMWY);
     backgroundColor( 0, 0, 0);
-
+    initTheWholeWorld(w, ba);
+    bool stop=false;
     menu_add( m, "20 POINTS");
     menu_add( m, "10 POINTS");
     menu_add( m, "5 POINTS");
-
 	while( !stop )
     {
         winClear();
-        menu_draw(m, 5,5, 100, 102);
+        /*menu_draw(m, 5,5, 100, 102);
         switch(menu_select(m))
         {
-            case 0 : /*on met ici le cas où si balle dans boite alors score + 20 * 5*/; draw(dat); break;
+            case 0 : ///*on met ici le cas où si balle dans boite alors score + 20 * 5; draw(b); break;
             case 1 : ; draw(dat); break;
             case 2 : ; draw(dat); break;
             default: ; draw(jeu); break; ///jeu : Pas d'action donc jeu bouge pas
         }
+    */
+        updateOnearth(ba);
+        drawAll(w,ba);
+        CollisionDroite(w, ba);
+        UpdateBlocParticle(w, ba);
+        cout << CollisionDroite(w, ba);
         stop = winDisplay();
+
     }
     winQuit();
 	return 0;
