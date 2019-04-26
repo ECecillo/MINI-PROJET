@@ -25,38 +25,38 @@ struct Color
 
 struct Vec2
 {
-	float x, y;
+    float x, y;
 };
 
 Vec2 operator+(const Vec2& a, const Vec2& b)
 {
-	Vec2 r;
-	r.x = a.x + b.x;
-	r.y = a.y + b.y;
-	return r;
+    Vec2 r;
+    r.x = a.x + b.x;
+    r.y = a.y + b.y;
+    return r;
 }
 
 Vec2 operator-(const Vec2& a, const Vec2& b)
 {
-	Vec2 r;
-	r.x = a.x - b.x;
-	r.y = a.y - b.y;
-	return r;
+    Vec2 r;
+    r.x = a.x - b.x;
+    r.y = a.y - b.y;
+    return r;
 }
 
 Vec2 operator+=(Vec2& a, const Vec2& b)
 {
-	a.x += b.x;
-	a.y += b.y;
-	return a;
+    a.x += b.x;
+    a.y += b.y;
+    return a;
 }
 
 Vec2 operator*(float a, const Vec2& b)
 {
-	Vec2 r;
-	r.x = a * b.x;
-	r.y = a * b.y;
-	return r;
+    Vec2 r;
+    r.x = a * b.x;
+    r.y = a * b.y;
+    return r;
 }
 
 Vec2 make_vec2(float x, float y)
@@ -69,7 +69,7 @@ Vec2 make_vec2(float x, float y)
 
 float norm(const Vec2 v) ///Calculs de l'hypo.
 {
-	return sqrt(v.x*v.x + v.y*v.y);
+    return sqrt(v.x*v.x + v.y*v.y);
 }
 
 
@@ -119,7 +119,7 @@ void initBall (Ball &b) ///InitB
 
 void forceGravity(Ball &ba) ///Ajout de la gravité de la terre
 {
-	ba.f = ba.f + make_vec2(0, -ba.m * G);
+    ba.f = ba.f + make_vec2(0, -ba.m * G);
 }
 
 void AddWall(World &w, float xmin, float ymin,float xmax, float ymax) ///Permet d'ajouter chaque mur à des coordonnées différentes
@@ -127,11 +127,11 @@ void AddWall(World &w, float xmin, float ymin,float xmax, float ymax) ///Permet 
     //for (w.nbW = 0; w.nbW < nb; w.nbW++)
     //{
 
-        w.tab[w.nbW].minp.x = xmin;
-        w.tab[w.nbW].minp.y = ymin;
-        w.tab[w.nbW].maxp.x = xmax;
-        w.tab[w.nbW].maxp.y = ymax;
-        w.nbW++;
+    w.tab[w.nbW].minp.x = xmin;
+    w.tab[w.nbW].minp.y = ymin;
+    w.tab[w.nbW].maxp.x = xmax;
+    w.tab[w.nbW].maxp.y = ymax;
+    w.nbW++;
     //}
 
 }
@@ -141,7 +141,8 @@ void initTheWholeWorld (World &w, Ball &ba) ///Initialisation de la balle dans l
 {
     initBall(ba);
     w.nbW = 0;
-    { ///Initialisation des murs du jeux (environement)
+    {
+        ///Initialisation des murs du jeux (environement)
 
         AddWall(w, 50, 450, 150, 350);  ///Droite \ en haut à gauche
         AddWall(w, 250, 300, 150, 200); /// Droite / à gauche du milieu
@@ -150,7 +151,8 @@ void initTheWholeWorld (World &w, Ball &ba) ///Initialisation de la balle dans l
         AddWall(w, 675, 450, 580, 350); /// DROITE / en haut à droite
         AddWall(w, 580, 200, 480, 300); /// DROITE / à droite du milieu
     }
-    { ///Initialisation des murs du jeux (boites)
+    {
+        ///Initialisation des murs du jeux (boites)
         {
             AddWall(w, 20, 0, 20, 50);
             AddWall(w, 70, 0, 70, 50);
@@ -200,12 +202,15 @@ void initTheWholeWorld (World &w, Ball &ba) ///Initialisation de la balle dans l
             AddWall(w, 700, 0, 700, 50);
         }
     }
-    { ///MUR FEMANT OUVERTURE
-        { ///GAUCHE
+    {
+        ///MUR FEMANT OUVERTURE
+        {
+            ///GAUCHE
             AddWall(w, 0, 80, 20, 50);
         }
 
-        { ///DROITE
+        {
+            ///DROITE
             AddWall(w, 700, 50, 720, 80);
         }
     }
@@ -237,32 +242,33 @@ void updateBall(Ball& b)		// advect
 
 void colisionWindow(Ball &b)
 {
-  {///Colision sur fenêtre
-    if (b.p.x < 0)  ///colision bas de fenêtre
     {
-        b.p.x = -b.p.x;
-        b.v.x = -b.v.x;
-        b.v = FRICTION * b.v;
+        ///Colision sur fenêtre
+        if (b.p.x < 0)  ///colision bas de fenêtre
+        {
+            b.p.x = -b.p.x;
+            b.v.x = -b.v.x;
+            b.v = FRICTION * b.v;
+        }
+        if (b.p.y < 0)  ///colision fenêtre
+        {
+            b.p.y = -b.p.y;
+            b.v.y = -b.v.y;
+            b.v = FRICTION * b.v;
+        }
+        /*if (b.p.x >= DIMWX)
+        {
+            b.p.x = DIMWX-(b.p.x-DIMWX);
+            b.v.x = -b.v.x;
+            b.v = FRICTION * b.v;
+        } HAUT DE LA FENETRE */
+        if (b.p.y >= DIMWY)
+        {
+            b.p.y = DIMWY-(b.p.y-DIMWY);
+            b.v.y = -b.v.y;
+            b.v = FRICTION * b.v;
+        }
     }
-    if (b.p.y < 0)  ///colision fenêtre
-    {
-        b.p.y = -b.p.y;
-        b.v.y = -b.v.y;
-        b.v = FRICTION * b.v;
-    }
-    /*if (b.p.x >= DIMWX)
-    {
-        b.p.x = DIMWX-(b.p.x-DIMWX);
-        b.v.x = -b.v.x;
-        b.v = FRICTION * b.v;
-    } HAUT DE LA FENETRE */
-    if (b.p.y >= DIMWY)
-    {
-        b.p.y = DIMWY-(b.p.y-DIMWY);
-        b.v.y = -b.v.y;
-        b.v = FRICTION * b.v;
-    }
-  }
 
 }
 
@@ -290,21 +296,26 @@ void drawAll (World &w, Ball &ba)
 
 bool CollisionDroite (World &w, Ball &ba) ///Dis si il y colision avec segment (mur)
 {
-    int i;
-    for (i=0; i< w.nbW; i++)
-    {
-        Vec2 u = make_vec2(w.tab[i].maxp.x-w.tab[i].minp.x, w.tab[i].maxp.y-w.tab[i].minp.y);
-        Vec2 WallCer = make_vec2(ba.p.x - w.tab[i].minp.x,ba.p.y - w.tab[i].minp.y );   ///
+    Vec2 A = w.tab[w.nbW].minp;
+    Vec2 B = w.tab[w.nbW].maxp;
+    Vec2 C = ba.p;
 
-    float numerateur = u.x*WallCer.y-u.y*WallCer.x;
-    if (numerateur<0)
-    {
-        numerateur = -numerateur;
-    }
-    float denominateur = norm(u);
-    float CI = numerateur/denominateur;
+    Vec2 u;
+    u.x = B.x - A.x;
+    u.y = B.y - A.y;
 
+    Vec2 AC;
+    AC.x = C.x - A.x;
+    AC.y = C.y - A.y;
 
+    float numerateur = u.x*AC.y - u.y*AC.x;   // norme du vecteur v
+
+    if (numerateur <0)
+
+        numerateur = -numerateur ;   // valeur absolue ; si c'est négatif, on prend l'opposé.
+
+    float denominateur = sqrt(u.x*u.x + u.y*u.y);  // norme de u
+    float CI = numerateur / denominateur;
     if (CI < R)
     {
         return true;
@@ -313,40 +324,44 @@ bool CollisionDroite (World &w, Ball &ba) ///Dis si il y colision avec segment (
     {
         return false;
     }
-    }
 
 }
 
-bool UpdateBlocParticle(World& wa, Ball ba)
+bool ForCollisionDroite (World &wa, Ball &ba)
 {
     int i;
-    for (i=0; i< wa.nbW; i++)
+    for(i=0; i< NMAX; i++)
     {
-            if (CollisionDroite(wa, ba) ==  false)
-            {
-                return false;
-            }
-    Vec2 Min = wa.tab[i].minp;
-    Vec2 Max = wa.tab[i].maxp;
-
-    Vec2 C = ba.p;
-
-    Vec2 XY, XC, YC; ///XC = X à la balle, XY = segment, YC = Y à la balle
-    XY.x = Max.x - Min.x;
-    XY.y = Max.y - Min.y;
-    XC.x = C.x - Min.x;
-    XC.y = C.y - Min.y;
-    YC.x = C.x - Max.x;
-    YC.y = C.y - Max.y;
-
-    float pscal1 = XY.x*XC.x + XY.y*XY.y; ///produit scalaire
-    float pscal2 = (-XY.x)*YC.x + (-XY.y)*YC.y; ///produit scalaire
-    if (pscal1 >= 0 && pscal2 >= 0)
-    {
-        ba.v.x = -ba.v.x;
+        CollisionDroite(wa, ba);
     }
-    return true;
-    }
+}
+
+bool UpdateBlocParticle(World& wa, Ball &ba)
+{
+        if (CollisionDroite(wa, ba) ==  false)
+        {
+            return false;
+        }
+        Vec2 Min = wa.tab[wa.nbW].minp;
+        Vec2 Max = wa.tab[wa.nbW].maxp;
+
+        Vec2 C = ba.p;
+
+        Vec2 XY, XC, YC; ///XC = X à la balle, XY = segment, YC = Y à la balle
+        XY.x = Max.x - Min.x;
+        XY.y = Max.y - Min.y;
+        XC.x = C.x - Min.x;
+        XC.y = C.y - Min.y;
+        YC.x = C.x - Max.x;
+        YC.y = C.y - Max.y;
+
+        float pscal1 = XY.x*XC.x + XY.y*XY.y; ///produit scalaire
+        float pscal2 = (-XY.x)*YC.x + (-XY.y)*YC.y; ///produit scalaire
+        if (pscal1 >= 0 && pscal2 >= 0)
+        {
+            ba.v.x = -ba.v.x;
+        }
+        return true;
 
 }
 
@@ -358,7 +373,7 @@ void updateOnearth(Ball& ba)
     colisionWindow(ba);
 }
 
-int main(int , char** )
+int main(int, char** )
 {
     srand(time(NULL));
     World w;
@@ -371,7 +386,7 @@ int main(int , char** )
     menu_add( m, "20 POINTS");
     menu_add( m, "10 POINTS");
     menu_add( m, "5 POINTS");
-	while( !stop )
+    while( !stop )
     {
         winClear();
         /*menu_draw(m, 5,5, 100, 102);
@@ -382,15 +397,15 @@ int main(int , char** )
             case 2 : ; draw(dat); break;
             default: ; draw(jeu); break; ///jeu : Pas d'action donc jeu bouge pas
         }
-    */
+        */
         updateOnearth(ba);
         drawAll(w,ba);
-        CollisionDroite(w, ba);
+        ForCollisionDroite(w, ba);
         UpdateBlocParticle(w, ba);
-        cout << CollisionDroite(w, ba) << endl;
+        ///cout << ForCollisionDroite(w, ba) << endl;
         stop = winDisplay();
     }
     winQuit();
-	return 0;
+    return 0;
 }
 
