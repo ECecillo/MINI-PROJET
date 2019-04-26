@@ -13,7 +13,8 @@ const int NMAX = 10000;         // nombre MAX de particules
 const int DIMWY = 500;
 const int DIMWX = 720;
 const float  FRICTION = 0.02f;   // valeur d'absorbtion de la vitesse en cas de collision: 1=la particule repart aussi vite, 0=elle s'arrete
-const float R = 3;         // rayon des cercles des particules
+
+const float R = 8;         // rayon des cercles des particules
 
 struct Color
 {
@@ -96,24 +97,10 @@ struct Ball
 struct World
 {
     Wall tab[MAXW]; ///Tableau de murs pour initialisé généralement les murs
-    int nbW; ///le nombre de murs dans le jeu
+    int nbW = 28; ///le nombre de murs dans le jeu
     Ball ba;
 
 };
-
-void AddWall(World &w, float xmin, float ymin,float xmax, float ymax) ///Permet d'ajouter chaque mur à des coordonnées différentes
-{
-    //for (w.nbW = 0; w.nbW < nb; w.nbW++)
-    //{
-
-        w.tab[w.nbW].minp.x = xmin;
-        w.tab[w.nbW].minp.y = ymin;
-        w.tab[w.nbW].maxp.x = xmax;
-        w.tab[w.nbW].maxp.y = ymax;
-        w.nbW++;
-    //}
-
-}
 
 void initBall (Ball &b) ///InitB
 {
@@ -134,6 +121,21 @@ void forceGravity(Ball &ba) ///Ajout de la gravité de la terre
 {
 	ba.f = ba.f + make_vec2(0, -ba.m * G);
 }
+
+void AddWall(World &w, float xmin, float ymin,float xmax, float ymax) ///Permet d'ajouter chaque mur à des coordonnées différentes
+{
+    //for (w.nbW = 0; w.nbW < nb; w.nbW++)
+    //{
+
+        w.tab[w.nbW].minp.x = xmin;
+        w.tab[w.nbW].minp.y = ymin;
+        w.tab[w.nbW].maxp.x = xmax;
+        w.tab[w.nbW].maxp.y = ymax;
+        w.nbW++;
+    //}
+
+}
+
 
 void initTheWholeWorld (World &w, Ball &ba) ///Initialisation de la balle dans le monde et de tous les murs du jeu
 {
@@ -289,12 +291,10 @@ void drawAll (World &w, Ball &ba)
 bool CollisionDroite (World &w, Ball &ba) ///Dis si il y colision avec segment (mur)
 {
     int i;
-    for (i=0; i < w.nbW; i++)
+    for (i=0; i< w.nbW; i++)
     {
-        Vec2 u = w.tab[i].maxp-w.tab[i].minp; //, w.tab[i].maxp.y-w.tab[i].minp.y);
-       // Vec2 u = make_vec2(w.tab[i].maxp.x-w.tab[i].minp.x, w.tab[i].maxp.y-w.tab[i].minp.y);
+        Vec2 u = make_vec2(w.tab[i].maxp.x-w.tab[i].minp.x, w.tab[i].maxp.y-w.tab[i].minp.y);
         Vec2 WallCer = make_vec2(ba.p.x - w.tab[i].minp.x,ba.p.y - w.tab[i].minp.y );   ///
-
 
     float numerateur = u.x*WallCer.y-u.y*WallCer.x;
     if (numerateur<0)
@@ -358,7 +358,6 @@ void updateOnearth(Ball& ba)
     colisionWindow(ba);
 }
 
-
 int main(int , char** )
 {
     srand(time(NULL));
@@ -388,9 +387,8 @@ int main(int , char** )
         drawAll(w,ba);
         CollisionDroite(w, ba);
         UpdateBlocParticle(w, ba);
-        cout << CollisionDroite(w, ba);
+        cout << CollisionDroite(w, ba) << endl;
         stop = winDisplay();
-
     }
     winQuit();
 	return 0;
