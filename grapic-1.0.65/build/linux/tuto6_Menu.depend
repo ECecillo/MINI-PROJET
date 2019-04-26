@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1555944431 source:/home/etu/p1805901/Mes documents/LIFAMI/MINI-PROJET/grapic-1.0.65/src/Grapic.cpp
+1555944431 source:/home/etu/p1805901/Mes documents/LIFAMI/MINI-PROJET/grapic-1.0.65/apps/tutorials/tuto6_Menu.cpp
 	<Grapic.h>
 
 1555944431 /home/etu/p1805901/Mes documents/LIFAMI/MINI-PROJET/grapic-1.0.65/src/Grapic.h
@@ -347,12 +347,6 @@
 	"begin_code.h"
 	"close_code.h"
 
-1540998442 /usr/include/SDL2/SDL_sensor.h
-	"SDL_stdinc.h"
-	"SDL_error.h"
-	"begin_code.h"
-	"close_code.h"
-
 1519922081 /usr/include/SDL2/SDL_shape.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
@@ -392,67 +386,6 @@
 	"begin_code.h"
 	"close_code.h"
 
-1555693565 source:/home/nezo/Documents/MINI-PROJET/grapic-1.0.65/src/Grapic.cpp
+1555944431 source:/home/etu/p1805901/Mes documents/LIFAMI/MINI-PROJET/grapic-1.0.65/src/Grapic.cpp
 	<Grapic.h>
-
-1555693565 /home/nezo/Documents/MINI-PROJET/grapic-1.0.65/src/Grapic.h
-	<cassert>
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<vector>
-	<cmath>
-	<cassert>
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<thread>
-	<chrono>
-	<vector>
-	<algorithm>
-	<SDL.h>
-	<SDL_ttf.h>
-	<SDL_image.h>
-
-1555693565 D
-
-1556272194 source:/home/etu/p1805901/Téléchargements/MINI-PROJET-master/grapic-1.0.65/apps/MINI-PROJET/main_MINI-PROJET.cpp
-	<iostream>
-	<cmath>
-	<Grapic.h>
-	<stdlib.h>
-	<time.h>
-
-1555944431 /home/etu/p1805901/Téléchargements/MINI-PROJET-master/grapic-1.0.65/src/Grapic.h
-	<cassert>
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<vector>
-	<cmath>
-	<cassert>
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<thread>
-	<chrono>
-	<vector>
-	<algorithm>
-	<SDL.h>
-	<SDL_ttf.h>
-	<SDL_image.h>
-
-1555944431 source:/home/etu/p1805901/Téléchargements/MINI-PROJET-master/grapic-1.0.65/src/Grapic.cpp
-	<Grapic.h>
-
-1555944431 
-
-1555944431 69151b1c19dc8d7ceb88b27b135ddf97e70de
-
-1556280182 source:/home/etu/p1805901/Mes documents/LIFAMI/MINI-PROJET/grapic-1.0.65/apps/MINI-PROJET/main_MINI-PROJET.cpp
-	<iostream>
-	<cmath>
-	<Grapic.h>
-	<stdlib.h>
-	<time.h>
 
