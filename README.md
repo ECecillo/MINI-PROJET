@@ -3,7 +3,7 @@
 #### REGLES DU JEU :
 ________________________________________________________________________________
 
-10 buckets :
+10 boites en tous  :
 
 - 4 buckets de 5
 
@@ -27,8 +27,8 @@ En fonction de ce qui est choisie s'applique ces règles :
 - 5 = Si boule est dans Buck 5 * 2 sinon +/- 0 au score finale.
 ________________________________________________________________________________
 
-La boule est générée aléatoirement en haut de la fenêtre.
+La boule est générée aléatoirement en haut de la fenêtre lorsque l'utiliateur appuie sur espace.
 ________________________________________________________________________________
 
-L'environement du jeu ne change pas et est construite lors de la compialtion.
+L'environement du jeu ne change pas et est construit lors de la compialtion.
 ________________________________________________________________________________
