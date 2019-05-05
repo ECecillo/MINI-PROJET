@@ -21,7 +21,7 @@
 	<SDL_ttf.h>
 	<SDL_image.h>
 
-1519922081 /usr/include/SDL2/SDL.h
+1551346706 /usr/include/SDL2/SDL.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -53,12 +53,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_main.h
+1551346706 /usr/include/SDL2/SDL_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_stdinc.h
+1551346706 /usr/include/SDL2/SDL_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -87,54 +87,37 @@
 	<stdlib.h>
 	"close_code.h"
 
-1526927947 /usr/include/SDL2/SDL_config.h
-	"SDL_config-i386.h"
-	"SDL_config-ia64.h"
-	"SDL_config-ppc64.h"
-	"SDL_config-ppc64le.h"
-	"SDL_config-ppc.h"
-	"SDL_config-s390x.h"
-	"SDL_config-s390.h"
-	"SDL_config-x86_64.h"
-	"SDL_config-arm.h"
-	"SDL_config-alpha.h"
-	"SDL_config-sparc64.h"
-	"SDL_config-sparc.h"
-	"SDL_config-aarch64.h"
-	"SDL_config-mips64el.h"
-	"SDL_config-mips64.h"
-	"SDL_config-mipsel.h"
-	"SDL_config-mips.h"
-	"SDL_config-riscv64.h"
+1551346706 /usr/include/SDL2/SDL_config.h
+	"SDL_platform.h"
 
 1526928086 /usr/include/SDL2/SDL_config-x86_64.h
 	"SDL_platform.h"
 
-1519922081 /usr/include/SDL2/SDL_platform.h
+1551346706 /usr/include/SDL2/SDL_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/begin_code.h
+1551346706 /usr/include/SDL2/begin_code.h
 
-1519922081 /usr/include/SDL2/close_code.h
+1551346706 /usr/include/SDL2/close_code.h
 
-1519922081 /usr/include/SDL2/SDL_assert.h
+1551346706 /usr/include/SDL2/SDL_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_atomic.h
+1551346706 /usr/include/SDL2/SDL_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	<mbarrier.h>
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_audio.h
+1551346706 /usr/include/SDL2/SDL_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -144,24 +127,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_error.h
+1551346706 /usr/include/SDL2/SDL_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_endian.h
+1551346706 /usr/include/SDL2/SDL_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_mutex.h
+1551346706 /usr/include/SDL2/SDL_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_thread.h
+1551346706 /usr/include/SDL2/SDL_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -172,18 +155,18 @@
 	<stdlib.h>
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_rwops.h
+1551346706 /usr/include/SDL2/SDL_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_clipboard.h
+1551346706 /usr/include/SDL2/SDL_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_cpuinfo.h
+1551346706 /usr/include/SDL2/SDL_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -197,7 +180,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_events.h
+1551346706 /usr/include/SDL2/SDL_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -211,7 +194,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_video.h
+1551346706 /usr/include/SDL2/SDL_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -219,13 +202,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_pixels.h
+1551346706 /usr/include/SDL2/SDL_pixels.h
 	"SDL_stdinc.h"
 	"SDL_endian.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_rect.h
+1551346706 /usr/include/SDL2/SDL_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -233,7 +216,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_surface.h
+1551346706 /usr/include/SDL2/SDL_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -242,11 +225,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_blendmode.h
+1551346706 /usr/include/SDL2/SDL_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_keyboard.h
+1551346706 /usr/include/SDL2/SDL_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -254,27 +237,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_keycode.h
+1551346706 /usr/include/SDL2/SDL_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1519922081 /usr/include/SDL2/SDL_scancode.h
+1551346706 /usr/include/SDL2/SDL_scancode.h
 	"SDL_stdinc.h"
 
-1519922081 /usr/include/SDL2/SDL_mouse.h
+1551346706 /usr/include/SDL2/SDL_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_joystick.h
+1551346706 /usr/include/SDL2/SDL_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_gamecontroller.h
+1551346706 /usr/include/SDL2/SDL_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -282,11 +265,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_quit.h
+1551346706 /usr/include/SDL2/SDL_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1519922081 /usr/include/SDL2/SDL_gesture.h
+1551346706 /usr/include/SDL2/SDL_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -294,53 +277,53 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922082 /usr/include/SDL2/SDL_touch.h
+1551346706 /usr/include/SDL2/SDL_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_filesystem.h
+1551346706 /usr/include/SDL2/SDL_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_haptic.h
+1551346706 /usr/include/SDL2/SDL_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_hints.h
+1551346706 /usr/include/SDL2/SDL_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_loadso.h
+1551346706 /usr/include/SDL2/SDL_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_log.h
+1551346706 /usr/include/SDL2/SDL_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_messagebox.h
+1551346706 /usr/include/SDL2/SDL_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_power.h
+1551346706 /usr/include/SDL2/SDL_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_render.h
+1551346706 /usr/include/SDL2/SDL_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
@@ -353,7 +336,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_shape.h
+1551346706 /usr/include/SDL2/SDL_shape.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -362,7 +345,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_system.h
+1551346706 /usr/include/SDL2/SDL_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -370,32 +353,32 @@
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_timer.h
+1551346706 /usr/include/SDL2/SDL_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519922081 /usr/include/SDL2/SDL_version.h
+1551346706 /usr/include/SDL2/SDL_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1454362906 /usr/include/SDL2/SDL_ttf.h
+1501535956 /usr/include/SDL2/SDL_ttf.h
 	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
 
-1519932786 /usr/include/SDL2/SDL_image.h
+1520175005 /usr/include/SDL2/SDL_image.h
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
-1555693565 source:/home/nezo/Documents/MINI-PROJET/grapic-1.0.65/src/Grapic.cpp
+1556389505 source:/home/nezo/Documents/MINI-PROJET/grapic-1.0.65/src/Grapic.cpp
 	<Grapic.h>
 
-1555693565 /home/nezo/Documents/MINI-PROJET/grapic-1.0.65/src/Grapic.h
+1556389505 /home/nezo/Documents/MINI-PROJET/grapic-1.0.65/src/Grapic.h
 	<cassert>
 	<iostream>
 	<cstdlib>
@@ -450,6 +433,13 @@
 1555944431 69151b1c19dc8d7ceb88b27b135ddf97e70de
 
 1556285068 source:/home/etu/p1805901/Mes documents/LIFAMI/MINI-PROJET/grapic-1.0.65/apps/MINI-PROJET/main_MINI-PROJET.cpp
+	<iostream>
+	<cmath>
+	<Grapic.h>
+	<stdlib.h>
+	<time.h>
+
+1557071091 source:/home/nezo/Documents/MINI-PROJET/grapic-1.0.65/apps/MINI-PROJET/main_MINI-PROJET.cpp
 	<iostream>
 	<cmath>
 	<Grapic.h>

@@ -2,9 +2,32 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="debug" />
-	<File name="../../apps/MINI-PROJET/main_MINI-PROJET.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="../../apps/MINI-PROJET/main_MINI-PROJET.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7048" topLine="319" />
+			<Cursor1 position="2575" topLine="52" />
 		</Cursor>
+		<Folding>
+			<Collapse line="19" />
+			<Collapse line="26" />
+			<Collapse line="31" />
+			<Collapse line="39" />
+			<Collapse line="47" />
+			<Collapse line="54" />
+			<Collapse line="62" />
+			<Collapse line="70" />
+			<Collapse line="76" />
+			<Collapse line="82" />
+			<Collapse line="99" />
+			<Collapse line="134" />
+			<Collapse line="156" />
+			<Collapse line="163" />
+			<Collapse line="182" />
+			<Collapse line="195" />
+			<Collapse line="215" />
+			<Collapse line="230" />
+			<Collapse line="250" />
+			<Collapse line="301" />
+			<Collapse line="313" />
+		</Folding>
 	</File>
 </CodeBlocks_layout_file>
