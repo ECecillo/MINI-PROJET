@@ -19,11 +19,11 @@ Le joueur peut jouer 10 fois max.
 
 En fonction de ce qui est choisie s'applique ces règles :
 
-- 20 = Si boule est dans Buck 20 * 5 sinon -10 au score finale.
+- 20 = Si boule est dans Buck 20 * 5 sinon -10 au score final.
 
-- 10 = Si boule est dans Buck 10 * 3 sinon -5 au score finale.
+- 10 = Si boule est dans Buck 10 * 3 sinon -5 au score final.
 
-- 5 = Si boule est dans Buck 5 * 2 sinon +/- 0 au score finale.
+- 5 = Si boule est dans Buck 5 * 2 sinon +/- 0 au score final.
 
 
 La boule est générée aléatoirement en haut de la fenêtre lorsque l'utiliateur appuie sur espace.
